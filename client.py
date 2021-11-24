@@ -23,7 +23,7 @@ def patch_async_pypresence_client(client: pypresence.AioClient):
 
 
 def uses_rpc(f):
-    async def inner(self, *args, **kwargs):
+    async def inner(self: DoorMuteClient, *args, **kwargs):
         try:
             return await f(self, *args, **kwargs)
         except struct.error:
