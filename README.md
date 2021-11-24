@@ -38,6 +38,9 @@ Build the Docker image for the local server using `docker build` and deploy
 it with `-p 3456:3465` and `-v serverdata.json:serverdata.json` on your local
 server (pls not in the internet).
 
+You can program the ESP using Arduino IDE. Make sure to enter your 
+WLAN credentials and server host and password (from `serverdata.json`) into the request url.
+
 The client can be build using pyinstaller:
 ```shell
 pyinstaller --noconfirm --onefile -w --paths "./venv/Lib/site-packages" --hidden-import "websockets.legacy" --hidden-import "websockets.legacy.client"  "./client.py"
