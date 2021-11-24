@@ -23,6 +23,9 @@ has WLAN and little consumption. The circuit is very simple:
 ![ESP01 schematic](schem.png)
 You can leave out the LED if you want.
 
+For installing the button in your door, I just hot-glued it into the frame,
+but you can get creative here.
+
 This is the sketch for the ESP module: [esp.ino](esp.ino).
 
 ## Installation
@@ -40,12 +43,12 @@ The client can be build using pyinstaller:
 pyinstaller --noconfirm --onefile -w --paths "./venv/Lib/site-packages" --hidden-import "websockets.legacy" --hidden-import "websockets.legacy.client"  "./client.py"
 ```
 
-after you built the client, you can build the installer using:
+After you built the client, you can build the installer using:
 ```shell
 pyinstaller --noconfirm --onefile --console --add-data "./dist/client.exe;." --add-data "./resources;resources/" --paths "./venv/Lib/site-packages"  "./install.py"
 ```
 
-execute it to install the client.
+Execute it to install the client.
 When you are asked for a hostname, enter the hostname of your server + `:3465`.
 The server password is the password you set in the `serverdata.json` file.
 
